@@ -1,0 +1,8 @@
+cloudant==2.15.0
+Flask==3.0.3
+ibm_cloud_sdk_core==3.19.2
+ibm_watson==8.0.0
+numpy==1.26.4
+sounddevice==0.4.6
+Werkzeug==3.0.2
+wave==0.0.2
