@@ -6,7 +6,13 @@ WORKDIR /app
 
 # Copy the current directory contents into the container at /app
 COPY . /app
-COPY requirements.txt
+RUN ls -la
+# Copy the current directory contents into the container at /usr/src/app
+
+
+# List all files in the current directory (temporary debugging step)
+
+
 # Install any necessary packages specified in requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
