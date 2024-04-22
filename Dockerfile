@@ -1,9 +1,20 @@
-FROM icr.io/codeengine/golang:alpine
-COPY ./helloworld /helloworld
-COPY codeengine.go /
-RUN go build -o /codeengine /codeengine.go
+# Use an official Python runtime as a parent image
+FROM python:3.9-slim
 
-# Copy the exe into a smaller base image
-FROM icr.io/codeengine/alpine
-COPY --from=0 /codeengine /codeengine
-CMD /codeengine
+# Set the working directory to /app in the container
+WORKDIR /app
+
+# Copy the current directory contents into the container at /app
+COPY . /app
+
+# Install any necessary packages specified in requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Make port 5000 available to the world outside this container
+EXPOSE 5501
+
+# Define environment variables if needed (e.g., API keys, configuration settings)
+# ENV API_KEY="YOUR_API_KEY_HERE"
+
+# Run ibm_speech_to_text.py when the container launches
+CMD ["python", "ibm_speech_to_text.py"]
