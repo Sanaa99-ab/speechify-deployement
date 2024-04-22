@@ -7,15 +7,15 @@ RUN apt-get update && apt-get install -y \
     libasound2-dev \
     && rm -rf /var/lib/apt/lists/*
 
-# Set the working directory to root in the container
-WORKDIR /
+# Set the working directory to /app in the container
+WORKDIR /app
 
-# Copy both the requirements.txt and the Python script into the container at root
-COPY requirements.txt ibm_speech_to_text.py /
+# Copy the current directory contents into the container at /app
+COPY . /app
 
 # Install any necessary packages specified in requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
-COPY . /app
+
 # Make port 8080 available to the world outside this container
 EXPOSE 8080
 
