@@ -166,6 +166,7 @@ models = {
 
 @app.route('/')
 def index():
+    print("Attempting to render index.html from", app.template_folder)
     return render_template('index.html')
 
 @app.route('/convert_audio', methods=['POST'])
