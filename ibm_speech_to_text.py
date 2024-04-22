@@ -17,9 +17,9 @@ import wave
 
 #app = Flask(__name__)
 
-app = Flask(__name__, template_folder='templates')
+print("Current Working Directory:", os.getcwd())
+app = Flask(__name__, template_folder=os.path.join(os.getcwd(), 'templates'))
 print("Template folder set to:", app.template_folder)
-print("Absolute path to templates:", os.path.abspath('templates'))
 app.secret_key = 'lXq2PUtb'
 
 ALLOWED_EXTENSIONS = {'wav', 'mp3'}  # Ajoutez les extensions de fichiers autorisées ici
