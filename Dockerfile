@@ -33,4 +33,4 @@ ENV NAME World
 ENV PYTHONUNBUFFERED 1
 
 # Run ibm_speech_to_text.py when the container launches
-CMD ["python", "ibm_speech_to_text.py"]
+CMD ["python", "/app/ibm_speech_to_text.py"]
