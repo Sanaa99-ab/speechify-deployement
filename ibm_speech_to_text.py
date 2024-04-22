@@ -166,7 +166,7 @@ models = {
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('/templates/index.html')
 
 @app.route('/convert_audio', methods=['POST'])
 def convert_audio():
