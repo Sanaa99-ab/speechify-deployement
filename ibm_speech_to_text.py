@@ -16,7 +16,7 @@ from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
 import wave
 
 #app = Flask(__name__)
-app = Flask(__name__, template_folder='/templates')
+app = Flask(__name__)
 app.secret_key = 'lXq2PUtb'
 
 ALLOWED_EXTENSIONS = {'wav', 'mp3'}  # Ajoutez les extensions de fichiers autorisées ici
@@ -164,7 +164,7 @@ models = {
     "Swedish": "sv-SE_Telephony"
 }
 
-@app.route('/')
+@app.route('/templates')
 def index():
     return render_template('index.html')
 
